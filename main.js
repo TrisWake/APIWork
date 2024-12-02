@@ -15,5 +15,7 @@ document.querySelector('#button').addEventListener('click', ()=>{
     const pokeText = document.querySelector('#pokeText').value
     const pokeDex = `https://goweather.herokuapp.com/weather/${pokeText}`
     fetch(pokeDex)
-    
-})
+    document.querySelector('#temperature')
+    document.querySelector('#wind')
+    document.querySelector('#description')
+})  
