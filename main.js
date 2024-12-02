@@ -9,17 +9,16 @@ button.addEventListener('click', ()=>{
        document.querySelector('#image').src = response.message
     })
     .catch((error) => console.log(error));
-})
 
 const pokeText = document.querySelector('#pokeText').value
-const pokeDex = `https://goweather.herokuapp.com/weather/${pokeText}`
+const pokeDex = `${weatherAPI}${pokeText}`
     
 fetch(pokeDex)
-.then((data) => data,json())
+.then((data) => data.json())
 .then((response) => {
     console.log("Weather Loaded", response)
     document.querySelector('#temperature').textContent = `Temperatur:${response.temperature}`;
     document.querySelector('#wind').textContent = `Wind: ${response.wind}`;
     document.querySelector('#description').textContent = `Description: ${response.description}`
 })
-catch((error) => console.error("Weather Error:", error))
+.catch((error) => console.error("Weather Error:", error))
